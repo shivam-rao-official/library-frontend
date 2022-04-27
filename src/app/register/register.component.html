@@ -1,0 +1,61 @@
+<div class="container">
+    <h2 >ADD USER</h2>
+    <div class="content">
+        <table style="width:25%" align="center">
+        <tr> 
+            <td><label for="name">NAME</label></td>
+            <td><input type="text" name="name" id="name" [(ngModel)]="name" required></td>
+        </tr>
+          <br>
+        <tr>
+            <td><label for="mobile">MOBILE</label></td>
+            <td><input type="number" name="mobile" id="mobile" [(ngModel)]="mobile"  required/><br></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="mail">EMAIL</label></td>
+            <td><input type="mail" name="email" id="email"  [(ngModel)]="email"  required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="dob">DOB</label></td>
+            <td><input type="date" name="dob" id="dob"  [(ngModel)]="date"  required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="address">ADDRESS</label></td>
+            <td><input type="text" name="address" id="address" [(ngModel)]="address" required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="city">CITY</label></td>
+            <td><input type="text" name="city" id="city" [(ngModel)]="city" required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="code">PIN CODE</label></td>
+            <td><input type="number" name="code" id="code" [(ngModel)]="pincode"  required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="uname">USERNAME</label></td>
+            <td><input type="text" name="uname" id="uname" [(ngModel)]="username" required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="password">PASSWORD</label></td>
+            <td><input type="password" name="password" id="password" [(ngModel)]="password" required/></td>
+        </tr>
+        <br>
+        <tr>
+            <td><label for="cpassword">CONFIRM PASSWORD</label></td>
+            <td><input type="password" name="cpassword" id="cpassword"  [(ngModel)]="confirmpassword" required/></td>
+        </tr>
+      
+    </table>
+    </div>
+    
+        <button class="reg"  (click)="register()" [disabled]='!(password && confirmpassword && name && mobile && email && date && address && city && pincode && username)'>REGISTER</button>
+      
+</div>
+
