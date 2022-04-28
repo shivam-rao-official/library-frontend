@@ -16,15 +16,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserlistComponent } from './userlist/userlist.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { GridModule,EditService, PageService, ToolbarService } from '@syncfusion/ej2-angular-grids';
 import { BookviewComponent } from './bookview/bookview.component';
+import { BookstatusComponent } from './bookstatus/bookstatus.component';
+import { BookcardsviewComponent } from './bookcardsview/bookcardsview.component';
+import { BooksviewcardComponent } from './booksviewcard/booksviewcard.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     UserlistComponent,
-    BookviewComponent
+    BookviewComponent,
+    BookstatusComponent,
+    BookcardsviewComponent,
+    BooksviewcardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +54,7 @@ import { BookviewComponent } from './bookview/bookview.component';
     GridModule
     
   ],
-  providers: [],
+  providers: [EditService, PageService, ToolbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

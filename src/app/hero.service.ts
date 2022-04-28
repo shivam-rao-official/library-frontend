@@ -25,5 +25,38 @@ export class HeroService {
   nonactive(){
     return this.http.get('http://localhost/libraryjson/project_min.php?tag=nonactive');
   }
+  dropdown(){
+    return this.http.get('http://localhost/libraryjson/project_min.php?tag=select');
+  }
+  view(){
+    return this.http.get('http://localhost/libraryjson/project_min.php?tag=view');
+  }
+  AddBookview(val:any){
+    console.log(val);
+    return this.http.post('http://localhost/libraryjson/project_min.php?tag=AddBook', val);
+  }
+  editBookview(val:any){
+    console.log(val);
+    return this.http.post('http://localhost/libraryjson/project_min.php?tag=update', val);
+  }
+  deleteBookview(val:any){
+    console.log(val);
+    return this.http.post('http://localhost/libraryjson/project_min.php?tag=delete', val);
+  }
+
+  totalbooks(){
+    return this.http.get('http://localhost/libraryjson/project_min.php?tag=totalbooks');
+  }
+  availablebooks(){
+    return this.http.get('http://localhost/libraryjson/project_min.php?tag=availablebooks');
+  }
+  unavailablebooks(){
+    return this.http.get('http://localhost/libraryjson/project_min.php?tag=unavailablebooks');
+  }
+  booklist(val:any){
+    return this.http.post('http://localhost/libraryjson/project_min.php?tag=booklist', val);
+  }
 }
+
+
 

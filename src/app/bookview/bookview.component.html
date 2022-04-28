@@ -1,1 +1,16 @@
-<p>bookview works!</p>
+<mat-card>
+    <mat-card-content>
+        <ejs-grid #grid [dataSource]='sel' [editSettings]='editSettings' [toolbar]='toolbar' allowPaging='true' (actionBegin)="option($event)" >
+            <e-columns>
+                <e-column field='Category' headerText='Category' editType="dropdownedit" [edit]="edit" width=100 ></e-column>
+                <e-column field='Name' headerText='Name' width=100></e-column>
+                <e-column field='Author' headerText='Author'  width=100></e-column>
+                <e-column field='Rating' headerText='Rating' width=100></e-column>
+                <e-column field='Price' headerText='Price' width=100></e-column>
+                <e-column field='Description' headerText='Description'  width=100></e-column>
+               
+            </e-columns>
+            </ejs-grid>
+        
+    </mat-card-content>
+</mat-card>
