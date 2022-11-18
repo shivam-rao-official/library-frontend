@@ -1,55 +1,91 @@
 <div class="container">
-    <h2 >Book viwes</h2>
+  <h2>Book viwes</h2>
+</div>
+<div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutstart="center">
+  <div fxFlex="30.8">
+    <mat-card class="example-cardtotal">
+      <mat-card-content style="padding: 24px">
+        <p style="color: white; font-size: 20px; text-align: center">
+          TOTAL BOOKS
+        </p>
+        <br />
+        <p style="color: white; font-size: 48px; text-align: center">
+          {{ this.totalbooks }}
+        </p>
+      </mat-card-content>
+    </mat-card>
   </div>
-    <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutstart="center" >
-        <div fxFlex="30.8">
-            <mat-card class="example-cardtotal">
-                <mat-card-content style="padding: 24px;">
-                    <p style="color:white;font-size: 20px; text-align: center;">TOTAL BOOKS</p>
-                    <p style="color:white;font-size: 28px; text-align: center; ">{{this.totalbooks}}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div  fxFlex="30.8">
-            <mat-card class="example-cardactive">
-                <mat-card-content style="padding: 24px;">
-                    <p style="color:white;font-size: 20px; text-align: center;">AVIALABLE BOOKS</p>
-                    <p style="color:white;font-size: 28px; text-align: center;">{{this.available}}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div  fxFlex="30.8">
-            <mat-card class="example-cardnonctive">
-                <mat-card-content style="padding: 24px;">
-                    <p style="color:white;font-size: 20px;text-align: center;">UNAVIALABLE BOOKS</p>
-                    <p style="color:white;font-size: 28px;text-align: center;">{{this.unavailable}}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="status">
-        <mat-button-toggle-group name="status" aria-label="status" (change)="changeSwitch($event.value)" >
-            <mat-button-toggle value="all">ALL</mat-button-toggle>
-            <mat-button-toggle value="avl">AVIALABLE</mat-button-toggle>
-            <mat-button-toggle value="unavl" >UNAVIALABLE</mat-button-toggle>
-        </mat-button-toggle-group>
-        
-        <br><br>
-        <ejs-grid #grid [dataSource]='userdate' gridLines='Both'   [allowFiltering]='true'  [allowSorting]="true" [allowPaging]="true" >
-          <e-columns>
-              <e-column field='Category'       headerText='CATEGORY'    width=90 type='Text' Text-align="center" ></e-column>
-              <e-column field='Name'     headerText='NAME'    width=90 type='Tel' Text-align="center" ></e-column>
-              <e-column field='status'     headerText='STATUS'    width=90 type='number' Text-align="center" ></e-column>
-              <e-column field='Description'     headerText='DESCRIPION'    width=90 type='string' Text-align="center" ></e-column>
-          </e-columns>
-      </ejs-grid>
-  
-  
-  
-        </div>
-    </div>
-   
-  
-    
-    
-  
-  
+  <div fxFlex="30.8">
+    <mat-card class="example-cardactive">
+      <mat-card-content style="padding: 24px">
+        <p style="color: white; font-size: 20px; text-align: center">
+          AVAILABLE BOOKS
+        </p>
+        <br />
+        <p style="color: white; font-size: 48px; text-align: center">
+          {{ this.available }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex="30.8">
+    <mat-card class="example-cardnonctive">
+      <mat-card-content style="padding: 24px">
+        <p style="color: white; font-size: 20px; text-align: center">
+          ISSUED BOOKS
+        </p>
+        <br />
+        <p style="color: white; font-size: 48px; text-align: center">
+          {{ this.unavailable }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="status">
+    <mat-button-toggle-group
+      name="status"
+      aria-label="status"
+      (change)="changeSwitch($event.value)"
+    >
+      <mat-button-toggle value="all">ALL</mat-button-toggle>
+      <mat-button-toggle value="avl">AVIALABLE</mat-button-toggle>
+      <mat-button-toggle value="unavl">UNAVIALABLE</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <br /><br />
+    <ejs-grid
+      #grid
+      [dataSource]="userdate"
+      gridLines="Both"
+      [allowFiltering]="true"
+      [allowSorting]="true"
+      [allowPaging]="true"
+    >
+      <e-columns>
+        <e-column
+          field="dept"
+          headerText="DEPARTMENT"
+          width="90"
+          type="Text"
+          Text-align="center"
+        ></e-column>
+        <e-column field="bookName" headerText="Book Name" width="100"> </e-column>
+        <e-column field="bookAuthorName" headerText="Book Author Name" width="100"></e-column>
+        <e-column field="bookISBNNumber" headerText="ISBN" width="100"></e-column>
+        <e-column field="bookPrice" headerText="Price" width="100"></e-column>
+        <e-column
+          field="is_stock"
+          headerText="STATUS"
+          width="90"
+          type="number"
+          Text-align="center"
+        ></e-column>
+        <e-column
+        field="bookEdition"
+        headerText="Description"
+        width="100"
+      ></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>

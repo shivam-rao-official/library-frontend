@@ -1,16 +1,31 @@
 <mat-card>
-    <mat-card-content>
-        <ejs-grid #grid [dataSource]='sel' [editSettings]='editSettings' [toolbar]='toolbar' allowPaging='true' (actionBegin)="option($event)" >
-            <e-columns>
-                <e-column field='Category' headerText='Category' editType="dropdownedit" [edit]="edit" width=100 ></e-column>
-                <e-column field='Name' headerText='Name' width=100></e-column>
-                <e-column field='Author' headerText='Author'  width=100></e-column>
-                <e-column field='Rating' headerText='Rating' width=100></e-column>
-                <e-column field='Price' headerText='Price' width=100></e-column>
-                <e-column field='Description' headerText='Description'  width=100></e-column>
-               
-            </e-columns>
-            </ejs-grid>
-        
-    </mat-card-content>
+  <mat-card-content>
+    <ejs-grid
+      #grid
+      [dataSource]="sel"
+      [editSettings]="editSettings"
+      [toolbar]="toolbar"
+      allowPaging="true"
+      (actionBegin)="option($event)"
+    >
+      <e-columns>
+        <e-column
+          field="dept"
+          headerText="Department"
+          editType="dropdownedit"
+          [edit]="edit"
+          width="100"
+        ></e-column>
+        <e-column field="bookName" headerText="Book Name" width="100"> </e-column>
+        <e-column field="bookAuthorName" headerText="Book Author Name" width="100"></e-column>
+        <e-column field="bookISBNNumber" headerText="ISBN" width="100"></e-column>
+        <e-column field="bookPrice" headerText="Price" width="100"></e-column>
+        <e-column
+          field="bookEdition"
+          headerText="Description"
+          width="100"
+        ></e-column>
+      </e-columns>
+    </ejs-grid>
+  </mat-card-content>
 </mat-card>

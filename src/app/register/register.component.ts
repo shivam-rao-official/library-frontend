@@ -4,41 +4,37 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public name:any;
-  public  mobile :any;
-  public email:any;
-  public address :any;
-  public  city:any;
-  public  pincode:any;
-  public date:any;
-  public  username:any;
-  public  password:any;
-  public confirmpassword :any;
-  
+  public name: any;
+  public email: any;
+  public collegeId: any;
+  public password: any;
+  public dept: any;
 
-
-
-
-  constructor(private Hero:HeroService,private router: Router,private route: ActivatedRoute) { }
+  constructor(
+    private Hero: HeroService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.register();
-  }
  
+  }
 
-  register(){
-    let val={'name':this.name,'mobile':this.mobile,'email':this.email,'address':this.address,'city':this.city,'pincode':this.pincode,'username':this.username,'password':this.password,'confirmpassword':this.confirmpassword,'dob':this.date};
+  register() {
+    let val = {
+      name: this.name,
+      emailId: this.email,
+      pswd: this.password,
+      collegeId: this.collegeId,
+      dept: this.dept,
+    };
     console.log(val);
 
-    this.Hero.register(val).subscribe((data:any) =>{
-      this.router.navigateByUrl('/login');
-    })
-    
-    
-    
-    }
+    this.Hero.register(val, this.Hero.adminEmailToken).subscribe((data: any) => {
+      this.router.navigateByUrl('/Userlist');
+    });
   }
-
+}

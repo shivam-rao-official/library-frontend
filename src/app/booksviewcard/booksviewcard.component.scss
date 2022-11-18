@@ -14,24 +14,23 @@ h2{
     border-style: ridge;
     border: 1px solid blue;
     margin-left: 10px;
+}h2{
+    border: 10px solid white;
+    border-radius: 12px;
+    padding: 5px;
+    background-color: grey;
+    color: white;
+    text-align: center;
 }
-// .example-cardactive{
-//     background-color: #4B9256;
-//     height: 150px;
-//     width:350px;
-//     border: 0cm;
-//     border-style: ridge;
-//     border: 1px solid blue;
-// }
-// .example-cardnonctive{
-//     background-color: #EA730B;
-//     height: 150px;
-//     width:350px;
-//     border: 0cm;
-//     border-style: ridge;
-//     border: 1px solid blue;
-// }
-// .status{
-//     margin-top: 40px;
-//     margin-left:30px;
-// }
+
+.reg{
+
+    background-color: dodgerblue;
+    color: white; 
+    border: 2px solid dodgerblue;
+    border-radius: 2px;
+    margin-left: 816px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 10px;
+}

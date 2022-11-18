@@ -1,24 +1,40 @@
 <body class="body">
-    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center"  fxFlexAlign="center">
-     <mat-card class="card">
-    <mat-card-header >
-          <mat-card-title>Library Management 
-              <br><br>System</mat-card-title><br>
-          <img mat-card-sm-image src="assets/images/login_head.png" style="height: 70px; width: 200px;">
-    </mat-card-header>
-                  <mat-card-content>
-                      <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Username" [(ngModel)]="username">
-                  </mat-form-field>
-          <br>
-                  <mat-form-field class="example-full-width">
-                     <input matInput type="password" placeholder="Password"  [(ngModel)]="password">
-                     </mat-form-field>
-                  </mat-card-content>
-          <br>
-                 <button mat-stroked-button color="accent" (click)="login()" class="btn-block">Log in</button>
-                 <button class="register" (click)="register()">Register</button>
-                 
+  <div
+    class="login-wrapper"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxFlexAlign="center"
+  >
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Library Management <br /><br />System</mat-card-title
+        ><br />
+        <!-- <img mat-card-sm-image src="assets/images/login_head.png" style="height: 70px; width: 200px;"> -->
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" [(ngModel)]="username" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="password"
+          />
+        </mat-form-field>
+      </mat-card-content>
+      <br />
+      <button
+        mat-stroked-button
+        color="accent"
+        (click)="login()"
+        class="btn-block"
+      >
+        Log in
+      </button>
+      <!-- <button class="register" (click)="register()">Register</button> -->
     </mat-card>
-    </div>
-    </body>
+  </div>
+</body>

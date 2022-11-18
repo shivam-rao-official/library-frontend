@@ -1,62 +1,107 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroService {
+  adminEmailToken: String = '';
+  private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
+  constructor(private http: HttpClient) {}
+  register(val: any, email:any) {
+    console.log(val);
+    return this.http.post(
+      `${this.baseUrl}/create-user?staff_email=${email}`,
+      val
+    );
+  }
+  login(email: String, pswd: String) {
+    return this.http.post(
+      `${this.baseUrl}/login?email=${email}&pswd=${pswd}`,
+      ''
+    );
+  }
+  userlist(val: any) {
+    return this.http.post(
+      'http://localhost/libraryjson/project_min.php?tag=userlist',
+      val
+    );
+  }
+  // total() {
+  //   return this.http.get(
+  //     'http://localhost/libraryjson/project_min.php?tag=total'
+  //   );
+  // }
+  // active() {
+  //   return this.http.get(
+  //     'http://localhost/libraryjson/project_min.php?tag=active'
+  //   );
+  // }
+  // nonactive() {
+  //   return this.http.get(
+  //     'http://localhost/libraryjson/project_min.php?tag=nonactive'
+  //   );
+  // }
+  dropdown() {
+    return this.http.get(`${this.baseUrl}/showAllBooks`);
+  }
+  view() {
+    return this.http.get(`${this.baseUrl}/showAllBooks`);
+  }
+  viewByFilter(filter: String) {
+    return this.http.get(`${this.baseUrl}/showBooks?filter=${filter}`);
+  }
+  AddBookview(val: any) {
+    console.log(val);
+    console.log(this.adminEmailToken);
 
-  constructor(private http: HttpClient) { }
-  register(val:any){
-  console.log(val);
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=register', val);
+    return this.http.post(
+      `${this.baseUrl}/add-book?staff_email=${this.adminEmailToken}`,
+      val
+    );
   }
-  login(val:any){
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=login', val);
-  }
-  userlist(val:any){
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=userlist', val);
-  }
-  total(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=total');
-  }
-  active(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=active');
-  }
-  nonactive(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=nonactive');
-  }
-  dropdown(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=select');
-  }
-  view(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=view');
-  }
-  AddBookview(val:any){
+  editBookview(val: any) {
     console.log(val);
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=AddBook', val);
+    return this.http.post(
+      `${this.baseUrl}/update?staff_email=${this.adminEmailToken}`,
+      val
+    );
   }
-  editBookview(val:any){
+  deleteBookview(val: any) {
     console.log(val);
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=update', val);
-  }
-  deleteBookview(val:any){
-    console.log(val);
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=delete', val);
+    return this.http.delete(
+      `${this.baseUrl}/delete-books?email=${this.adminEmailToken}`,
+      val
+    );
   }
 
-  totalbooks(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=totalbooks');
+  totalbooks() {
+    return this.http.get(``);
   }
-  availablebooks(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=availablebooks');
+  // availablebooks() {
+  //   return this.http.get(
+  //     'http://localhost/libraryjson/project_min.php?tag=availablebooks'
+  //   );
+  // }
+  // unavailablebooks() {
+  //   return this.http.get(
+  //     'http://localhost/libraryjson/project_min.php?tag=unavailablebooks'
+  //   );
+  // }
+  viewUserByFilter(val: any) {
+    return this.http.get(
+      `${this.baseUrl}/showUsers?filter=${val}`
+    );
   }
-  unavailablebooks(){
-    return this.http.get('http://localhost/libraryjson/project_min.php?tag=unavailablebooks');
+
+  bookSummary() {
+    return this.http.get(`${this.baseUrl}/summary`);
   }
-  booklist(val:any){
-    return this.http.post('http://localhost/libraryjson/project_min.php?tag=booklist', val);
+
+  userSummary() {
+    return this.http.get(`${this.baseUrl}/userSummary`);
+  }
+
+  issueBook(val: any, staffEmail: any) {
+    return this.http.post(`${this.baseUrl}/issue?isbn=${val.isbn}&user_email=${val.userEmail}&staff_email=${staffEmail}`,'')
   }
 }
-
-
-

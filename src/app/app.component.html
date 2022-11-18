@@ -1,12 +1,27 @@
-<a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <a mat-button routerLink="login" routerLinkActive="active" >Log in</a>
 
-<a mat-button routerLink="Register" routerLinkActive="active">Register</a>
+      <a mat-button routerLink="Register" routerLinkActive="active">Create User</a>
 
-<a mat-button routerLink="Userlist" routerLinkActive="active">Userlist</a>
-<a mat-button routerLink="book" routerLinkActive="active">Booklist</a>
-<a mat-button routerLink="bookstatus" routerLinkActive="active">bookstatus</a>
-<a mat-button routerLink="bookview" routerLinkActive="active">bookview</a>
+      <a mat-button routerLink="Userlist" routerLinkActive="active">Userlist</a>
+      <a mat-button routerLink="book" routerLinkActive="active">Add Books</a>
+      <a mat-button routerLink="bookstatus" routerLinkActive="active"
+        >Book View</a
+      >
+      <a mat-button routerLink="bookview" routerLinkActive="active">Issue Books</a>
+    </nav>
 
-
-
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+   
+  </body>
+</html>
