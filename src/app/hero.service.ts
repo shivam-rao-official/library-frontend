@@ -6,8 +6,9 @@ import { HttpClient } from '@angular/common/http';
 export class HeroService {
   adminEmailToken: String = '';
   private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
+  private userBaseUrl = 'http://localhost:8080/api/v1/lbs/user';
   constructor(private http: HttpClient) {}
-  register(val: any, email:any) {
+  register(val: any, email: any) {
     console.log(val);
     return this.http.post(
       `${this.baseUrl}/create-user?staff_email=${email}`,
@@ -26,21 +27,14 @@ export class HeroService {
       val
     );
   }
-  // total() {
-  //   return this.http.get(
-  //     'http://localhost/libraryjson/project_min.php?tag=total'
-  //   );
-  // }
-  // active() {
-  //   return this.http.get(
-  //     'http://localhost/libraryjson/project_min.php?tag=active'
-  //   );
-  // }
-  // nonactive() {
-  //   return this.http.get(
-  //     'http://localhost/libraryjson/project_min.php?tag=nonactive'
-  //   );
-  // }
+
+  issueReturnReportAll(email: any) {
+    return this.http.get(`${this.userBaseUrl}/report?email=${email}&filter=`);
+  }
+  issueReturnReportByFilter(filter:any,email: any) {
+    return this.http.get(`${this.userBaseUrl}/report?email=test.user@gmail.com&filter=${filter}`);
+  }
+
   dropdown() {
     return this.http.get(`${this.baseUrl}/showAllBooks`);
   }
@@ -88,9 +82,7 @@ export class HeroService {
   //   );
   // }
   viewUserByFilter(val: any) {
-    return this.http.get(
-      `${this.baseUrl}/showUsers?filter=${val}`
-    );
+    return this.http.get(`${this.baseUrl}/showUsers?filter=${val}`);
   }
 
   bookSummary() {
@@ -102,6 +94,15 @@ export class HeroService {
   }
 
   issueBook(val: any, staffEmail: any) {
-    return this.http.post(`${this.baseUrl}/issue?isbn=${val.isbn}&user_email=${val.userEmail}&staff_email=${staffEmail}`,'')
+    return this.http.post(
+      `${this.baseUrl}/issue?isbn=${val.isbn}&user_email=${val.userEmail}&staff_email=${staffEmail}`,
+      ''
+    );
+  }
+  returnBook(val: any, staffEmail: any) {
+    return this.http.post(
+      `${this.baseUrl}/return?isbn=${val.isbn}&user_email=${val.userEmail}&staff_email=${staffEmail}`,
+      ''
+    );
   }
 }

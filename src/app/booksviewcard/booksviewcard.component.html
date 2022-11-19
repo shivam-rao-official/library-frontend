@@ -71,6 +71,82 @@
       </table>
     </div>
   
-    <button class="reg" (click)="issueBooks()">REGISTER</button>
+    <button class="reg" (click)="issueBooks()">ISSUE BOOK</button>
+  </div>
+  
+  <div class="container">
+    <h2>RETURN BOOK</h2>
+    <div class="content">
+      <table style="width: 25%" align="center">
+        <tr>
+          <td><label for="name">BOOK ISBN NUMBER</label></td>
+          <td>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              [(ngModel)]="isbn"
+              required
+            />
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td><label for="mail">User Email</label></td>
+          <td>
+            <input
+              type="mail"
+              name="email"
+              id="email"
+              [(ngModel)]="userEmail"
+              required
+            />
+          </td>
+        </tr>
+        <!-- <br />
+        <tr>
+          <td><label for="collegeId">COLLEGE ID</label></td>
+          <td>
+            <input
+              type="text"
+              name="collegeId"
+              id="collegeId"
+              [(ngModel)]="collegeId"
+              required
+            />
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td><label for="collegeId">DEPARTMENT</label></td>
+          <td>
+            <input
+              type="text"
+              name="dept"
+              id="dept"
+              [(ngModel)]="dept"
+              required
+            />
+          </td>
+        </tr>
+  
+        <br />
+        <tr>
+          <td><label for="password">PASSWORD</label></td>
+          <td>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              [(ngModel)]="password"
+              required
+            />
+          </td>
+        </tr> -->
+        <br />
+      </table>
+    </div>
+  
+    <button class="reg" (click)="returnBooks()">RETURN BOOK</button>
   </div>
   

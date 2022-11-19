@@ -21,6 +21,8 @@ import { BookviewComponent } from './bookview/bookview.component';
 import { BookstatusComponent } from './bookstatus/bookstatus.component';
 import { BookcardsviewComponent } from './bookcardsview/bookcardsview.component';
 import { BooksviewcardComponent } from './booksviewcard/booksviewcard.component';
+import { UserviewComponent } from './userview/userview.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -35,7 +37,9 @@ import { BooksviewcardComponent } from './booksviewcard/booksviewcard.component'
     BookviewComponent,
     BookstatusComponent,
     BookcardsviewComponent,
-    BooksviewcardComponent
+    BooksviewcardComponent,
+    UserviewComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

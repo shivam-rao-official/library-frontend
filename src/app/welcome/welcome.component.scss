@@ -1,0 +1,44 @@
+.container{
+    width: 100%;
+    height: 40%;
+    background-color: cadetblue;
+    text-align: center;
+    color: aliceblue;
+    font-weight: 900;
+}
+
+h1{
+    font-size: 50px;
+}
+h3{
+    font-size: 30px;
+}
+h5{
+    font-size: 15px;
+}
+
+.login-card-img{
+    width: 60px;
+}
+
+.login-text{
+    font-weight: 900;
+}
+.row{
+    margin: 30px;
+    margin-right: 20%;
+    margin-left: 40%;
+}
+.login-card-user{
+    display: inline-block;
+}
+
+.spacer{
+    margin-left: 90px;
+}
+
+.login-card {
+    border: 1px solid grey;
+    padding: 20px;
+    border-radius: 10px;
+}

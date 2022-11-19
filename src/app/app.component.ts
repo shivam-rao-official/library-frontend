@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlexAlignStyleBuilder } from '@angular/flex-layout';
 import { HeroService } from './hero.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { HeroService } from './hero.service';
 export class AppComponent implements OnInit {
   title = 'library';
   loginToken: String = '';
+  showNav = false
   constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {
     this.loginToken = this.heroService.adminEmailToken;
   }
+
 }

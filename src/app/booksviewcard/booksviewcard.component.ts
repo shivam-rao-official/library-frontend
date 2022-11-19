@@ -28,4 +28,15 @@ export class BooksviewcardComponent implements OnInit {
       this.Router.navigateByUrl('/bookstatus');
     })
   }
+
+  returnBooks() {
+    let val = {
+      isbn: this.isbn,
+      userEmail: this.userEmail,
+    };
+
+    this.Hero.returnBook(val, this.Hero.adminEmailToken).subscribe((data: any) => {
+      this.Router.navigateByUrl('/bookstatus');
+    })
+  }
 }

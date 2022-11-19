@@ -1,0 +1,107 @@
+<div class="container">
+  <h2>ISSUE RETURN REPORT</h2>
+</div>
+<!-- <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutstart="center">
+    <div fxFlex="30.8">
+      <mat-card class="example-cardtotal">
+        <mat-card-content style="padding: 24px">
+          <p style="color: white; font-size: 20px; text-align: center">
+            TOTAL USERS
+          </p>
+          <p style="color: white; font-size: 28px; text-align: center">
+            {{ this.total }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="30.8">
+      <mat-card class="example-cardactive">
+        <mat-card-content style="padding: 24px">
+          <p style="color: white; font-size: 20px; text-align: center">
+            ACTIVE USERS
+          </p>
+          <p style="color: white; font-size: 28px; text-align: center">
+            {{ this.active }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="30.8">
+      <mat-card class="example-cardnonctive">
+        <mat-card-content style="padding: 24px">
+          <p style="color: white; font-size: 20px; text-align: center">
+            NON ACTIVE USERS
+          </p>
+          <p style="color: white; font-size: 28px; text-align: center">
+            {{ this.nonactive }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div> -->
+<div class="status">
+  <mat-button-toggle-group
+    name="status"
+    aria-label="status"
+    (change)="changeSwitch($event.value)"
+  >
+    <mat-button-toggle value="all">All</mat-button-toggle>
+    <mat-button-toggle value="active">ACTIVE</mat-button-toggle>
+    <!-- <mat-button-toggle value="nonactive">NON ACTIVE</mat-button-toggle> -->
+  </mat-button-toggle-group>
+
+  <br /><br />
+  <ejs-grid
+    #grid
+    [dataSource]="userdata"
+    gridLines="Both"
+    [allowFiltering]="true"
+    [allowSorting]="true"
+    [allowPaging]="true"
+  >
+    <e-columns>
+      <e-column
+        field="bookName"
+        headerText="Book Name"
+        width="90"
+        type="Text"
+        Text-align="center"
+      ></e-column>
+      <e-column
+        field="issueOn"
+        headerText="Issued On"
+        width="90"
+        type="Tel"
+        Text-align="center"
+      ></e-column>
+      <e-column
+      field="issuedTill"
+      headerText="Issue Till"
+      width="90"
+      type="text"
+      Text-align="center"
+    ></e-column>
+      <e-column
+        field="returnOn"
+        headerText="Returned On"
+        width="90"
+        type="text"
+        Text-align="center"
+      ></e-column>
+     
+      <e-column
+        field="userName"
+        headerText="Issued To"
+        width="90"
+        type="text"
+        Text-align="center"
+      ></e-column>
+      <e-column
+        field="staffName"
+        headerText="Issued By"
+        width="90"
+        type="text"
+        Text-align="center"
+      ></e-column>
+    </e-columns>
+  </ejs-grid>
+</div>
