@@ -13,5 +13,6 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
     this.Hero.adminEmailToken = '';
     this.appComp.showNav = false
+    this.appComp.isStudent = ''
   }
 }

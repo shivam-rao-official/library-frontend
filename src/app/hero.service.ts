@@ -5,8 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeroService {
   adminEmailToken: String = '';
-  private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
-  private userBaseUrl = 'http://localhost:8080/api/v1/lbs/user';
+  // private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
+  // private userBaseUrl = 'http://localhost:8080/api/v1/lbs/user';
+  private baseUrl = 'http://localhost:9090/api/v1/lbs/staff';
+  private userBaseUrl = 'http://localhost:9090/api/v1/lbs/user';
   constructor(private http: HttpClient) {}
   register(val: any, email: any) {
     console.log(val);
@@ -44,6 +46,14 @@ export class HeroService {
   viewByFilter(filter: String) {
     return this.http.get(`${this.baseUrl}/showBooks?filter=${filter}`);
   }
+
+  viewBooksByDept(dept: String){
+    return this.http.get(`${this.baseUrl}/showBooks?filter=''&dept=${dept}`);
+  }
+
+  viewBooksByFilterAndDept(){}
+
+
   AddBookview(val: any) {
     console.log(val);
     console.log(this.adminEmailToken);

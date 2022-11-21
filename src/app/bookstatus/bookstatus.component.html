@@ -48,8 +48,17 @@
       (change)="changeSwitch($event.value)"
     >
       <mat-button-toggle value="all">ALL</mat-button-toggle>
-      <mat-button-toggle value="avl">AVIALABLE</mat-button-toggle>
-      <mat-button-toggle value="unavl">UNAVIALABLE</mat-button-toggle>
+      <mat-button-toggle value="avl">AVAILABLE</mat-button-toggle>
+      <mat-button-toggle value="unavl">UNAVAILABLE</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-button-toggle-group
+      name="dept_status"
+      aria-label="dept_status"
+      (change)="changeDeptSwitch($event.value)"
+    >
+      <mat-button-toggle value="bca">BCA</mat-button-toggle>
+      <mat-button-toggle value="bba">BBA</mat-button-toggle>
+      <mat-button-toggle value="bhm">BHM</mat-button-toggle>
     </mat-button-toggle-group>
 
     <br /><br />
@@ -69,9 +78,18 @@
           type="Text"
           Text-align="center"
         ></e-column>
-        <e-column field="bookName" headerText="Book Name" width="100"> </e-column>
-        <e-column field="bookAuthorName" headerText="Book Author Name" width="100"></e-column>
-        <e-column field="bookISBNNumber" headerText="ISBN" width="100"></e-column>
+        <e-column field="bookName" headerText="Book Name" width="100">
+        </e-column>
+        <e-column
+          field="bookAuthorName"
+          headerText="Book Author Name"
+          width="100"
+        ></e-column>
+        <e-column
+          field="bookISBNNumber"
+          headerText="ISBN"
+          width="100"
+        ></e-column>
         <e-column field="bookPrice" headerText="Price" width="100"></e-column>
         <e-column
           field="is_stock"
@@ -81,10 +99,10 @@
           Text-align="center"
         ></e-column>
         <e-column
-        field="bookEdition"
-        headerText="Description"
-        width="100"
-      ></e-column>
+          field="bookEdition"
+          headerText="Description"
+          width="100"
+        ></e-column>
       </e-columns>
     </ejs-grid>
   </div>

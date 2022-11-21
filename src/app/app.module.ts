@@ -28,6 +28,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +56,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpClientModule,
     FlexLayoutModule,
     MatButtonToggleModule,
-    GridModule
-    
+    GridModule,
+    // ToastrModule.forRoot(),
   ],
   providers: [EditService, PageService, ToolbarService],
   bootstrap: [AppComponent]

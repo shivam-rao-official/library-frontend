@@ -10,7 +10,8 @@ import { HeroService } from './hero.service';
 export class AppComponent implements OnInit {
   title = 'library';
   loginToken: String = '';
-  showNav = false
+  showNav = false;
+  isStudent = '';
   constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {

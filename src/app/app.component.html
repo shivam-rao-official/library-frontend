@@ -22,7 +22,9 @@
       <a mat-button routerLink="bookview" routerLinkActive="active">Issue Books</a>
       <a mat-button routerLink="welcome" routerLinkActive="active" >Logout</a>
     </nav>
-
+    <nav *ngIf="isStudent == 'student'">
+      <a mat-button routerLink="welcome" routerLinkActive="active" >Logout</a>
+    </nav>
     <router-outlet></router-outlet>
    
   </body>

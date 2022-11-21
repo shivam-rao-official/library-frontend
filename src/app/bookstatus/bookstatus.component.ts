@@ -24,6 +24,8 @@ export class BookstatusComponent implements OnInit {
   public filterOption1: FilterSettingsModel = { type: 'Menu' };
   public fields: object = { text: 'CustomerID', value: 'CustomerID' };
   public height = '220px';
+  public status = 'all';
+  public deptFilter = 'all';
 
   constructor(private Hero: HeroService) {}
 
@@ -32,31 +34,32 @@ export class BookstatusComponent implements OnInit {
     this.changeSwitch('all');
   }
   changeSwitch(value: any) {
+    this.status = value;
     console.log(value);
     let temp = { toogle: event };
-    if (value == 'all') {
-      this.Hero.view().subscribe((data: any) => {
-        this.userdate = data['data'];
-      });
+    if (this.deptFilter == 'all') {
+      if (value == 'all') {
+        this.Hero.view().subscribe((data: any) => {
+          this.userdate = data['data'];
+        });
+      }
+      if (value == 'avl') {
+        this.userdate = '';
+        this.Hero.viewByFilter(value).subscribe((data: any) => {
+          this.userdate = data['data'];
+        });
+      }
+      if (value == 'unavl') {
+        this.userdate = '';
+        this.Hero.viewByFilter(value).subscribe((data: any) => {
+          this.userdate = data['data'];
+        });
+      }
     }
-    if (value == 'avl') {
-      this.userdate = '';
-      this.Hero.viewByFilter(value).subscribe((data: any) => {
-        this.userdate = data['data'];
-        // for (let i = 0; i < data['data'].length; i++) {
-        //   // if (data['data'][i]['inStock'] == true) {
-        //   //   this.userdate[i] = data['data'][i];
-        //   //   console.log(this.userdate[i]);
-        //   // }
-        // }
-      });
-    }
-    if (value == 'unavl') {
-      this.userdate = '';
-      this.Hero.viewByFilter(value).subscribe((data: any) => {
-        this.userdate = data['data']
-      });
-    }
+  }
+
+  changeDeptSwitch(value: any) {
+    this.deptFilter = value;
   }
 
   bookscount() {

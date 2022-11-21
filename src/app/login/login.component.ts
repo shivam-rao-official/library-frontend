@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { HeroService } from '../hero.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit {
     private Hero: HeroService,
     private router: Router,
     private route: ActivatedRoute,
-    private appComp: AppComponent
+    private appComp: AppComponent,
+    // private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
@@ -27,17 +30,22 @@ export class LoginComponent implements OnInit {
         console.log(data['success']);
         localStorage.setItem('email', email);
         this.Hero.adminEmailToken = email;
-        this.appComp.showNav = true
-        if(data['data'] == "STUDENT"){
-          
+        this.appComp.showNav = true;
+        if (data['data'] == 'STUDENT') {
+          // this.toastr.success("LOGIN SUCCESS", "LOGIN");
           this.router.navigateByUrl('/userBookView');
-          return ""
+          this.appComp.showNav = false;
+          this.appComp.isStudent = "student";
+          return '';
         }
+        // this.toastr.success("ADMIN LOGIN SUCCESS");
         this.router.navigateByUrl('/bookstatus');
-        return ""
+        this.appComp.isStudent = ''
+        return '';
       } else {
         alert('Enter Value Invalid please Register.');
-        return ""
+        // this.toastr.error("Invalid credential")
+        return '';
       }
     });
   }
