@@ -51,15 +51,9 @@
       <mat-button-toggle value="avl">AVAILABLE</mat-button-toggle>
       <mat-button-toggle value="unavl">UNAVAILABLE</mat-button-toggle>
     </mat-button-toggle-group>
-    <mat-button-toggle-group
-      name="dept_status"
-      aria-label="dept_status"
-      (change)="changeDeptSwitch($event.value)"
-    >
-      <mat-button-toggle value="bca">BCA</mat-button-toggle>
-      <mat-button-toggle value="bba">BBA</mat-button-toggle>
-      <mat-button-toggle value="bhm">BHM</mat-button-toggle>
-    </mat-button-toggle-group>
+
+    <input type="text" class="search-field" [(ngModel)]="searchString" />
+    <input type="button" value="SEARCH" class="search-btn" (click)="search()">
 
     <br /><br />
     <ejs-grid

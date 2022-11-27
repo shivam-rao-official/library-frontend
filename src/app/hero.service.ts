@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeroService {
   adminEmailToken: String = '';
-  // private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
-  // private userBaseUrl = 'http://localhost:8080/api/v1/lbs/user';
-  private baseUrl = 'http://localhost:9090/api/v1/lbs/staff';
-  private userBaseUrl = 'http://localhost:9090/api/v1/lbs/user';
+  private baseUrl = 'http://localhost:8080/api/v1/lbs/staff';
+  private userBaseUrl = 'http://localhost:8080/api/v1/lbs/user';
+  // private baseUrl = 'http://localhost:9090/api/v1/lbs/staff';
+  // private userBaseUrl = 'http://localhost:9090/api/v1/lbs/user';
   constructor(private http: HttpClient) {}
   register(val: any, email: any) {
     console.log(val);
@@ -33,8 +33,10 @@ export class HeroService {
   issueReturnReportAll(email: any) {
     return this.http.get(`${this.userBaseUrl}/report?email=${email}&filter=`);
   }
-  issueReturnReportByFilter(filter:any,email: any) {
-    return this.http.get(`${this.userBaseUrl}/report?email=test.user@gmail.com&filter=${filter}`);
+  issueReturnReportByFilter(filter: any, email: any) {
+    return this.http.get(
+      `${this.userBaseUrl}/report?email=test.user@gmail.com&filter=${filter}`
+    );
   }
 
   dropdown() {
@@ -47,12 +49,11 @@ export class HeroService {
     return this.http.get(`${this.baseUrl}/showBooks?filter=${filter}`);
   }
 
-  viewBooksByDept(dept: String){
+  viewBooksByDept(dept: String) {
     return this.http.get(`${this.baseUrl}/showBooks?filter=''&dept=${dept}`);
   }
 
-  viewBooksByFilterAndDept(){}
-
+  viewBooksByFilterAndDept() {}
 
   AddBookview(val: any) {
     console.log(val);
@@ -114,5 +115,8 @@ export class HeroService {
       `${this.baseUrl}/return?isbn=${val.isbn}&user_email=${val.userEmail}&staff_email=${staffEmail}`,
       ''
     );
+  }
+  searchBook(val: any) {
+    return this.http.get(`${this.baseUrl}/byBookName?key=${val}`);
   }
 }

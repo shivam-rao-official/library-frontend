@@ -26,12 +26,20 @@ export class BookstatusComponent implements OnInit {
   public height = '220px';
   public status = 'all';
   public deptFilter = 'all';
+  public searchString = '';
 
   constructor(private Hero: HeroService) {}
 
   ngOnInit(): void {
     this.bookscount();
     this.changeSwitch('all');
+  }
+
+  search() {
+    console.log(this.searchString);
+    this.Hero.searchBook(this.searchString).subscribe((data:any) => {
+      this.userdate = data['data']
+    })
   }
   changeSwitch(value: any) {
     this.status = value;
